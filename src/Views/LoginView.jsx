@@ -1,14 +1,16 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import { useStoreContext } from "../Context";
 import "./LoginView.css";
 
 function LoginView() {
     const navigate = useNavigate();
+    const { setLogged } = useStoreContext();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/movies/genres/');
+        navigate('/movies/genres/28');
         setLogged(true);
     };
 

@@ -6,11 +6,7 @@ import { useStoreContext } from "../Context";
 import "./RegisterView.css";
 
 function RegisterView() {
-    const { setEmail } = useStoreContext();
-    const { setFName } = useStoreContext();
-    const { setLName } = useStoreContext();
-    const { setLogged } = useStoreContext();
-
+    const { setEmail, setLogged, setFName, setLName } = useStoreContext();
     const navigate = useNavigate();
     const [p1, setP1] = useState("");
     const [p2, setP2] = useState("");
@@ -18,10 +14,10 @@ function RegisterView() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (p1 === p2) {
-            navigate('/movies/genres/');
-            setEmail(e.target[0].value);
-            setFName(e.target[1].value);
-            setLName(e.target[2].value);
+            navigate('/movies/genres/28');
+            setFName(e.target[0].value);
+            setLName(e.target[1].value);
+            setEmail(e.target[2].value);
             setLogged(true);
         } else {
             alert("An error has occured");
@@ -44,15 +40,10 @@ function RegisterView() {
                     <input id="1Password" type="password" className="input" name="1Password" onChange={event => { setP1(Number(event.target.value)) }} required />
                     <label htmlFor="2Password" className="inputLabel">Re-enter Password</label>
                     <input id="2Password" type="password" className="input" name="2Password" onChange={event => { setP2(Number(event.target.value)) }} required />
-                    <input type="submit" value="Register" />
+                    <input type="submit" value="Register" /><br />
+                    <label>Choose at least 5 of your favourite genres</label><br />
+                    <input type="checkbox"></input> 
                 </form>
-            </div>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <input type="checkbox"></input>
-                    <label></label>
-                </form>
-
             </div>
             <Footer />
         </div>
