@@ -42,14 +42,12 @@ function GenreView() {
         <div>
             <div className="movie-container">
                 {movies && movies.map(movie => (
-                    <div>
-                        <div className="movie-card" key={movie.id} onClick={() => navigate(`/movies/details/${movie.id}`)}>
+                    <div key={movie.id} >
+                        <div className="movie-card" onClick={() => navigate(`/movies/details/${movie.id}`)}>
                             <h1>{`${movie.title}`}</h1>
                             <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`${movie.id}`} />
                         </div>
-                        <button className="buyButtons" onClick={() => setCart((prevCart) => prevCart.set(movie.id, movie))
-                            //  disabled={movie.id === cart.map(key)}
-                        }>Buy</button>
+                        <button className="buyButtons" onClick={() => setCart((prevCart) => prevCart.set(movie.id, movie))}>{cart.has(movie.id) ? "Added" : "Buy"}</button>
                     </div>
                 ))}
             </div>

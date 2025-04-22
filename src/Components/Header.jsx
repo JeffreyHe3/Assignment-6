@@ -19,7 +19,7 @@ function Header() {
     }
 
     const handleSearch = debounce(() => {
-        setMessage("Fetching API...");
+        
     }, 400);
 
     return (
