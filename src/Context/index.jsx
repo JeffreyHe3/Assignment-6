@@ -8,6 +8,7 @@ export const StoreProvider = ({ children }) => {
     const [fName, setFName] = useState("");
     const [lName, setLName] = useState("");
     const [email, setEmail] = useState("");
+    const [search, setSearch] = useState("");
     const [cart, setCart] = useState(Map());
     const [fGenre, setFGenre] = useState([]);
 

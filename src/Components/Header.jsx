@@ -4,7 +4,7 @@ import { useStoreContext } from "../Context";
 
 function Header() {
     const navigate = useNavigate();
-    const { setLogged, logged, fName } = useStoreContext();
+    const { setLogged, logged, fName, setSearch } = useStoreContext();
 
     function debounce(func, delay) {
         let timer;
@@ -19,7 +19,7 @@ function Header() {
     }
 
     const handleSearch = debounce(() => {
-        
+        navigate('/movies/search');
     }, 400);
 
     return (
@@ -31,7 +31,7 @@ function Header() {
             {logged && <button className="headerButtons" onClick={() => navigate("/movies/cart")}>Cart</button>}
             {logged && <button className="headerButtons" onClick={() => navigate("/movies/settings")}>Settings</button>}
             {logged && <button className="headerButtons" onClick={() => { setLogged(false); navigate("/"); }}>Logout</button>}<br />
-            {logged && <input type="text" id="searchBar" placeholder="Search Movies Here" onInput={() => handleSearch()} />}
+            {logged && <input type="text" id="searchBar" placeholder="Search Movies Here" onInput={() => handleSearch()} onChange={event => { setSearch(String(event.target.value)) }} />}
         </div>
     )
 }

@@ -6,10 +6,48 @@ import { useStoreContext } from "../Context";
 import "./RegisterView.css";
 
 function RegisterView() {
-    const { setEmail, setLogged, setFName, setLName } = useStoreContext();
+    const { setEmail, setLogged, setFName, setLName, setFGenre } = useStoreContext();
     const navigate = useNavigate();
     const [p1, setP1] = useState("");
     const [p2, setP2] = useState("");
+    const genreList = [
+        {
+            "genre": "Action", "id": 28
+        },
+        {
+            "genre": "Adventure", "id": 12
+        },
+        {
+            "genre": "Animation", "id": 16
+        },
+        {
+            "genre": "Crime", "id": 80
+        },
+        {
+            "genre": "Family", "id": 10751
+        },
+        {
+            "genre": "Fantasy", "id": 14
+        },
+        {
+            "genre": "History", "id": 36
+        },
+        {
+            "genre": "Horror", "id": 27
+        },
+        {
+            "genre": "Mystery", "id": 9648
+        },
+        {
+            "genre": "Sci-Fi", "id": 878
+        },
+        {
+            "genre": "War", "id": 10752
+        },
+        {
+            "genre": "Western", "id": 37
+        }
+    ]
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -40,9 +78,14 @@ function RegisterView() {
                     <input id="1Password" type="password" className="input" name="1Password" onChange={event => { setP1(Number(event.target.value)) }} required />
                     <label htmlFor="2Password" className="inputLabel">Re-enter Password</label>
                     <input id="2Password" type="password" className="input" name="2Password" onChange={event => { setP2(Number(event.target.value)) }} required />
-                    <input type="submit" value="Register" /><br />
                     <label>Choose at least 5 of your favourite genres</label><br />
-                    <input type="checkbox"></input> 
+                    {genreList && genreList.map(genre => (
+                    <div key={genre.id}>
+                        <label>{genre.genre}</label>
+                        <input type="checkbox"></input>
+                    </div>
+                ))}
+                <input type="submit" value="Register" /><br />
                 </form>
             </div>
             <Footer />

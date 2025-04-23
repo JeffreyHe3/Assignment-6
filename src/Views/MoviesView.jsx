@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Genres from "../components/Genres";
 
 function MovieView() {
-    let genreList = [
+    const genreList = [
         {
             "genre": "Action", "id": 28
         },
