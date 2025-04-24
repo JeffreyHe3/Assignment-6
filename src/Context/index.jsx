@@ -13,7 +13,7 @@ export const StoreProvider = ({ children }) => {
     const [fGenre, setFGenre] = useState([]);
 
     return (
-        <StoreContext.Provider value={{ fName, setFName, lName, setLName, email, setEmail, cart, setCart, logged, setLogged, fGenre, setFGenre }}>
+        <StoreContext.Provider value={{ fName, setFName, lName, setLName, email, setEmail, cart, setCart, logged, setLogged, fGenre, setFGenre, search, setSearch }}>
             {children}
         </StoreContext.Provider>
     )

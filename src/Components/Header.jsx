@@ -11,7 +11,6 @@ function Header() {
 
         return function (...args) {
             clearTimeout(timer);
-            setMessage("");
             timer = setTimeout(() => {
                 func(...args);
             }, delay)
@@ -31,7 +30,11 @@ function Header() {
             {logged && <button className="headerButtons" onClick={() => navigate("/movies/cart")}>Cart</button>}
             {logged && <button className="headerButtons" onClick={() => navigate("/movies/settings")}>Settings</button>}
             {logged && <button className="headerButtons" onClick={() => { setLogged(false); navigate("/"); }}>Logout</button>}<br />
-            {logged && <input type="text" id="searchBar" placeholder="Search Movies Here" onInput={() => handleSearch()} onChange={event => { setSearch(String(event.target.value)) }} />}
+            {logged &&
+                <form onSubmit={handleSearch}>
+                    <input type="text" id="searchBar" placeholder="Search Movies Here" onChange={event => { setSearch(String(event.target.value)) }} />
+                </form>
+            }
         </div>
     )
 }

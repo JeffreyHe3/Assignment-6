@@ -6,7 +6,7 @@ import { useStoreContext } from "../Context";
 import "./RegisterView.css";
 
 function RegisterView() {
-    const { setEmail, setLogged, setFName, setLName, setFGenre } = useStoreContext();
+    const { setEmail, setLogged, setFName, setLName, setFGenre, fGenre } = useStoreContext();
     const navigate = useNavigate();
     const [p1, setP1] = useState("");
     const [p2, setP2] = useState("");
@@ -51,12 +51,18 @@ function RegisterView() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (p1 === p2) {
-            navigate('/movies/genres/28');
+        while (genreList){
+            if (genreList.id.checked){
+                setFGenre(genreList.genre, genreList.id);
+            }
+        }
+        if (p1 === p2 && fGenre.length < 5) {
             setFName(e.target[0].value);
             setLName(e.target[1].value);
             setEmail(e.target[2].value);
             setLogged(true);
+            const rand = Math.floor(Math.random() * genreList.length)
+            navigate(`/movies/genres/${rand.id}`);
         } else {
             alert("An error has occured");
         }
@@ -80,12 +86,13 @@ function RegisterView() {
                     <input id="2Password" type="password" className="input" name="2Password" onChange={event => { setP2(Number(event.target.value)) }} required />
                     <label>Choose at least 5 of your favourite genres</label><br />
                     {genreList && genreList.map(genre => (
-                    <div key={genre.id}>
-                        <label>{genre.genre}</label>
-                        <input type="checkbox"></input>
-                    </div>
-                ))}
-                <input type="submit" value="Register" /><br />
+                        <div key={genre.id}>
+                            <input id={genre.id} type="checkbox"></input>
+                            <label htmlFor={genre.id}>{genre.genre}</label>
+
+                        </div>
+                    ))}
+                    <input type="submit" value="Register" /><br />
                 </form>
             </div>
             <Footer />

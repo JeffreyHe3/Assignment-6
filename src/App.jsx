@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { StoreProvider } from "./context";
+import { StoreProvider } from "./Context";
 import HomeView from './Views/HomeView';
 import LoginView from './Views/LoginView';
 import RegisterView from './Views/RegisterView';
@@ -10,6 +10,7 @@ import MoviesView from './Views/MoviesView';
 import GenreView from './Views/GenreView';
 import CartView from './Views/CartView';
 import SettingsView from './Views/SettingsView';
+import SearchView from './Views/SearchView';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="details/:id" element={<DetailView />} />
             <Route path="cart" element={<CartView />} />
             <Route path="settings" element={<SettingsView />} />
+            <Route path="search" element={<SearchView />} />
           </Route>
           <Route path="*" element={<ErrorView />} />
         </Routes>
