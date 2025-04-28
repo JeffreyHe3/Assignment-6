@@ -51,11 +51,6 @@ function RegisterView() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        while (genreList){
-            if (genreList.id.checked){
-                setFGenre(genreList.genre, genreList.id);
-            }
-        }
         if (p1 === p2 && fGenre.length < 5) {
             setFName(e.target[0].value);
             setLName(e.target[1].value);
@@ -81,15 +76,14 @@ function RegisterView() {
                     <label htmlFor="email" className="inputLabel">Email</label>
                     <input id="email" type="email" className="input" name="email" autoComplete="on" required />
                     <label htmlFor="1Password" className="inputLabel">Password</label>
-                    <input id="1Password" type="password" className="input" name="1Password" onChange={event => { setP1(Number(event.target.value)) }} required />
+                    <input id="1Password" type="password" className="input" name="1Password" onChange={event => { setP1(String(event.target.value)) }} required />
                     <label htmlFor="2Password" className="inputLabel">Re-enter Password</label>
-                    <input id="2Password" type="password" className="input" name="2Password" onChange={event => { setP2(Number(event.target.value)) }} required />
+                    <input id="2Password" type="password" className="input" name="2Password" onChange={event => { setP2(String(event.target.value)) }} required />
                     <label>Choose at least 5 of your favourite genres</label><br />
                     {genreList && genreList.map(genre => (
                         <div key={genre.id}>
                             <input id={genre.id} type="checkbox"></input>
                             <label htmlFor={genre.id}>{genre.genre}</label>
-
                         </div>
                     ))}
                     <input type="submit" value="Register" /><br />
