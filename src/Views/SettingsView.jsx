@@ -2,7 +2,7 @@ import "./SettingsView.css";
 import { useStoreContext } from "../Context";
 
 function SettingsView() {
-    const { email, lName, fName, setEmail, setFName, setLName, fGenre, setFGenre } = useStoreContext();
+    const { email, lName, fName, fGenre, setFName, setLName, setFGenre } = useStoreContext();
     const genreList = [
         {
             "genre": "Action", "id": 28
@@ -62,7 +62,7 @@ function SettingsView() {
                         <input type="checkbox"></input>
                     </div>
                 ))}
-                <input type="submit" value="Change Account Details"></input>
+                <input type="submit" value="Change Account Details" />
             </form>
         </div>
     )

@@ -51,13 +51,12 @@ function RegisterView() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (p1 === p2 && fGenre.length < 5) {
+        if (p1 === p2 && fGenre.length >= 5) {
             setFName(e.target[0].value);
             setLName(e.target[1].value);
             setEmail(e.target[2].value);
             setLogged(true);
-            const rand = Math.floor(Math.random() * genreList.length)
-            navigate(`/movies/genres/${rand.id}`);
+            navigate(`/movies/genres/${fGenre[0].id}`);
         } else {
             alert("An error has occured");
         }
@@ -86,7 +85,7 @@ function RegisterView() {
                             <label htmlFor={genre.id}>{genre.genre}</label>
                         </div>
                     ))}
-                    <input type="submit" value="Register" /><br />
+                    <input type="submit" value="Register" />
                 </form>
             </div>
             <Footer />
