@@ -44,18 +44,17 @@ function SettingsView() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-            
+        setFName(e.target[0].value);
+        setLName(e.target[1].value);
     };
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <h1>First Name:</h1>
-                <input type="text" placeholder={`First name: ${fName}`}></input>
-                <button>Change First Name</button>
+                <input type="text" placeholder={fName}></input>
                 <h1>Last Name:</h1>
-                <input type="text" placeholder={`Last name: ${lName}`}></input>
-                <button>Change Last Name</button>
+                <input type="text" placeholder={lName}></input>
                 <h1>{`Email: ${email}`}</h1>
                 {genreList && genreList.map(genre => (
                     <div key={genre.id}>
@@ -63,6 +62,7 @@ function SettingsView() {
                         <input type="checkbox"></input>
                     </div>
                 ))}
+                <input type="submit" value="Change Account Details"></input>
             </form>
         </div>
     )
