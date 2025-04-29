@@ -52,17 +52,18 @@ function SettingsView() {
         <div>
             <form onSubmit={handleSubmit}>
                 <h1>First Name:</h1>
-                <input type="text" placeholder={fName}></input>
+                <input id="inputFName" type="text" placeholder={fName}></input>
                 <h1>Last Name:</h1>
-                <input type="text" placeholder={lName}></input>
+                <input id="inputLName" type="text" placeholder={lName}></input>
                 <h1>{`Email: ${email}`}</h1>
+                <h1>Favourite Genres:</h1>
                 {genreList && genreList.map(genre => (
                     <div key={genre.id}>
-                        <label>{genre.genre}</label>
-                        <input type="checkbox"></input>
+                        <input id={genre.id} type="checkbox"></input>
+                        <label className="genreLabels" htmlFor={genre.id} >{genre.genre}</label>
                     </div>
                 ))}
-                <input type="submit" value="Change Account Details" />
+                <input id="settingsSubmit" type="submit" value="Change Account Details" />
             </form>
         </div>
     )

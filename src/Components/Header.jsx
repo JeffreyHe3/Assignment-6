@@ -6,21 +6,21 @@ function Header() {
     const navigate = useNavigate();
     const { setLogged, logged, fName, setSearch } = useStoreContext();
 
-    function debounce(func, delay) {
-        let timer;
+    // function debounce(func, delay) {
+    //     let timer;
 
-        return function (...args) {
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-                func(...args);
-            }, delay)
-        }
-    }
+    //     return function (...args) {
+    //         clearTimeout(timer);
+    //         timer = setTimeout(() => {
+    //             func(...args);
+    //         }, delay)
+    //     }
+    // }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        debounce(() => {navigate('/movies/search');}, 400);
-    }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     debounce(() => {navigate('/movies/search');}, 400);
+    // }
 
     return (
         <div id="header">
@@ -31,11 +31,11 @@ function Header() {
             {logged && <button className="headerButtons" onClick={() => navigate("/movies/cart")}>Cart</button>}
             {logged && <button className="headerButtons" onClick={() => navigate("/movies/settings")}>Settings</button>}
             {logged && <button className="headerButtons" onClick={() => { setLogged(false); navigate("/"); }}>Logout</button>}<br />
-            {logged &&
+            {/* {logged &&
                 <form onSubmit={handleSubmit}>
                     <input type="text" id="searchBar" placeholder="Search Movies Here" onChange={event => { setSearch(String(event.target.value)) }} />
                 </form>
-            }
+            } */}
         </div>
     )
 }

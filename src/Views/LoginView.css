@@ -23,7 +23,6 @@ label {
 }
 
 
-input[type="text"],
 input[type="email"],
 input[type="password"] {
     padding: 10px;
@@ -34,7 +33,7 @@ input[type="password"] {
     width: 100%;
 }
 
-input[type="submit"] {
+#submitButton {
     background-color: #7009e5;
     border: none;
     color: white;

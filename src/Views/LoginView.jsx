@@ -24,7 +24,7 @@ function LoginView() {
                     <input id="email" type="email" className="input" name="email" autoComplete="on" required />
                     <label htmlFor="password" className="inputLabel">Password</label>
                     <input id="password" type="password" className="input" name="password" required />
-                    <input type="submit" value="Login" />
+                    <input id="submitButton" type="submit" value="Login" />
                 </form>
             </div>
             <Footer />
