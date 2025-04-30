@@ -52,6 +52,9 @@ function RegisterView() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // if(.checked){
+
+        // }
         if (p1 === p2) {
             setFName(e.target[0].value);
             setLName(e.target[1].value);

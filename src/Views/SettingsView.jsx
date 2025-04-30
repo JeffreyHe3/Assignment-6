@@ -46,6 +46,11 @@ function SettingsView() {
         e.preventDefault();
         setFName(e.target[0].value);
         setLName(e.target[1].value);
+        // if (.checked){
+
+        // } else {
+
+        // }
     };
 
     return (
