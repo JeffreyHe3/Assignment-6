@@ -19,6 +19,7 @@ function Header() {
 
     // const handleSubmit = (e) => {
     //     e.preventDefault();
+    //     setSearch(e.target[0].value);
     //     debounce(() => {navigate('/movies/search');}, 400);
     // }
 
@@ -33,7 +34,7 @@ function Header() {
             {logged && <button className="headerButtons" onClick={() => { setLogged(false); navigate("/"); }}>Logout</button>}<br />
             {/* {logged &&
                 <form onSubmit={handleSubmit}>
-                    <input type="text" id="searchBar" placeholder="Search Movies Here" onChange={event => { setSearch(String(event.target.value)) }} />
+                    <input type="text" id="searchBar" placeholder="Search Movies Here" />
                 </form>
             } */}
         </div>
