@@ -35,7 +35,7 @@ function Header() {
 
   return (
     <div id="header">
-      <h1 className="title">Jeffrey"s Movies</h1>
+      <h1 className="title">Jeffrey's Movies</h1>
       {logged ?
         <>
           <h1 className="title">{`Hi ${fName}!`}</h1>
