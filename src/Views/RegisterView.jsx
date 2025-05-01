@@ -6,7 +6,7 @@ import { useStoreContext } from "../Context";
 import "./RegisterView.css";
 
 function RegisterView() {
-    const { setEmail, setLogged, setFName, setLName, setFGenre, genreList } = useStoreContext();
+    const { setEmail, setLogged, setFName, setLName, setgenreList, genreList } = useStoreContext();
     const navigate = useNavigate();
     const [p1, setP1] = useState("");
     const [p2, setP2] = useState("");
@@ -15,7 +15,7 @@ function RegisterView() {
         e.preventDefault();
 
         // if(.checked){
-        // setFGenre();
+        // setgenreList();
         // }
         
         if (p1 === p2) {

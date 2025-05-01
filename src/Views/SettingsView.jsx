@@ -2,7 +2,7 @@ import "./SettingsView.css";
 import { useStoreContext } from "../Context";
 
 function SettingsView() {
-    const { email, lName, fName, fGenre, setFName, setLName, setFGenre, genreList } = useStoreContext();
+    const { email, lName, fName, fGenre, setFName, setLName, setgenreList, genreList } = useStoreContext();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -11,9 +11,9 @@ function SettingsView() {
         setLName(e.target[1].value);
 
         // if (.checked){
-        // setFGenre();
+        // setgenreList();
         // } else {
-        // setFGenre(.delete(.id));
+        // setgenreList(.delete(.id));
         // }
     };
 

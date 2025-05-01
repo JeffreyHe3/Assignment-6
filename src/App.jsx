@@ -21,12 +21,12 @@ function App() {
           <Route path="/" element={<HomeView />} />
           <Route path="/login" element={<LoginView />} />
           <Route path="/register" element={<RegisterView />} />
-          <Route path="cart" element={<CartView />} />
-          <Route path="settings" element={<SettingsView />} />
           <Route path="/movies" element={<MoviesView />} >
             <Route path="genres/:genre_id" element={<GenreView />} />
             <Route path="details/:id" element={<DetailView />} />
             <Route path="search" element={<SearchView />} />
+            <Route path="cart" element={<CartView />} />
+            <Route path="settings" element={<SettingsView />} />
           </Route>
           <Route path="*" element={<ErrorView />} />
         </Routes>
