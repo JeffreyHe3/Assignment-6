@@ -7,7 +7,7 @@ function Header() {
     const { setLogged, logged, fName, setSearch } = useStoreContext();
 
     function debounce(func, delay) {
-        let timer;
+        let timer = 0;
 
         return function (...args) {
             clearTimeout(timer);
@@ -17,10 +17,14 @@ function Header() {
         }
     }
 
-    const handleSearch(e) = debounce(() => {
+    const handleSearch = debounce((e) => {
         setSearch(e);
-        navigate('/movies/search');
+        navigate("/movies/search");
     }, 400);
+
+    const searchThing =(e)=>{
+        handleSearch(e.target.value)
+    };
 
     return (
         <div id="header">
@@ -31,7 +35,7 @@ function Header() {
                     <button className="headerButtons" onClick={() => navigate("/movies/cart")}>Cart</button>
                     <button className="headerButtons" onClick={() => navigate("/movies/settings")}>Settings</button>
                     <button className="headerButtons" onClick={() => { setLogged(false); navigate("/"); }}>Logout</button><br />
-                    <input type="text" id="searchBar" placeholder="Search Movies Here" onInput={(e) => handleSearch(e)}/>
+                    <input type="text" id="searchBar" placeholder="Search Movies Here" onInput={searchThing} />
                 </> : <>
                     <button className="headerButtons" onClick={() => navigate('/login')}>Login</button>
                     <button className="headerButtons" onClick={() => navigate('/register')}>Register</button>
