@@ -2,7 +2,7 @@ import "./SettingsView.css";
 import { useStoreContext } from "../Context";
 
 function SettingsView() {
-    const { email, lName, fName, fGenre, setFName, setLName, setgenreList, genreList } = useStoreContext();
+    const { email, lName, fName, setFName, setLName, setgenreList, genreList } = useStoreContext();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -10,11 +10,6 @@ function SettingsView() {
         setFName(e.target[0].value);
         setLName(e.target[1].value);
 
-        // if (.checked){
-        // setgenreList();
-        // } else {
-        // setgenreList(.delete(.id));
-        // }
     };
 
     return (
@@ -28,7 +23,7 @@ function SettingsView() {
                 <h1>Favourite Genres:</h1>
                 {genreList && genreList.map(genre => (
                     <div key={genre.id}>
-                        <input id={genre.id} type="checkbox" checked={fGenre.includes(genre.id)}></input>
+                        <input id={genre.id} type="checkbox" checked={genreList.favourite(true)}></input>
                         <label className="genreLabels" htmlFor={genre.id} >{genre.genre}</label>
                     </div>
                 ))}

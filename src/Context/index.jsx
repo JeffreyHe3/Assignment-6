@@ -10,7 +10,7 @@ export const StoreProvider = ({ children }) => {
     const [email, setEmail] = useState("");
     const [search, setSearch] = useState("");
     const [cart, setCart] = useState(Map());
-    const [genreList, setgenreList] = useState([]);
+    let [genreList, setgenreList] = useState([]);
     genreList = [
         {
             "genre": "Action", "id": 28, "favourite": false
