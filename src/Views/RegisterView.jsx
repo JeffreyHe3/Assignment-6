@@ -6,24 +6,45 @@ import { useStoreContext } from "../Context";
 import "./RegisterView.css";
 
 function RegisterView() {
-    const { setEmail, setLogged, setFName, setLName, setgenreList, genreList } = useStoreContext();
+    const { setEmail, setLogged, setFName, setLName, genreList, setFGenre } = useStoreContext();
     const navigate = useNavigate();
-    const [p1, setP1] = useState("");
-    const [p2, setP2] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (p1 === p2) {
-            setFName(e.target[0].value);
-            setLName(e.target[1].value);
-            setEmail(e.target[2].value);
-            setLogged(true);
-            navigate(`/movies/genres/28`);
-        } else {
-            alert("An error has occured");
+    
+        const fName = e.target[0].value;
+        const lName = e.target[1].value;
+        const email = e.target[2].value;
+        const password1 = e.target[3].value;
+        const password2 = e.target[4].value;
+        const checkedGenres = [];
+        const checkboxes = e.target.querySelectorAll('input[type="checkbox"]');
+    
+        if (password1 !== password2) {
+            alert("Passwords do not match.");
+            return;
         }
+    
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                checkedGenres.push(Number(checkbox.id));
+            }
+        });
+    
+        if (checkedGenres.length < 5) {
+            alert("Please select at least 5 favorite genres.");
+            return;
+        }
+    
+        setFName(fName);
+        setLName(lName);
+        setEmail(email);
+        setLogged(true);
+        setFGenre(checkedGenres);
+
+        navigate(`/movies/genres/${checkedGenres[0]}`);
     };
+    
 
     return (
         <div>
@@ -38,9 +59,9 @@ function RegisterView() {
                     <label htmlFor="email" className="inputLabel">Email</label>
                     <input id="email" type="email" className="input" name="email" autoComplete="on" required />
                     <label htmlFor="1Password" className="inputLabel">Password</label>
-                    <input id="1Password" type="password" className="input" name="1Password" onChange={event => { setP1(String(event.target.value)) }} required />
+                    <input id="1Password" type="password" className="input" name="1Password" required />
                     <label htmlFor="2Password" className="inputLabel">Re-enter Password</label>
-                    <input id="2Password" type="password" className="input" name="2Password" onChange={event => { setP2(String(event.target.value)) }} required />
+                    <input id="2Password" type="password" className="input" name="2Password" required />
                     <p id="genreListTitle">Choose at least 5 of your favourite genres</p>
                     {genreList && genreList.map(genre => (
                         <div key={genre.id}>

@@ -4,27 +4,7 @@ import { useStoreContext } from "../Context";
 
 function Header() {
     const navigate = useNavigate();
-    const { setLogged, logged, fName, setSearch } = useStoreContext();
-
-    function debounce(func, delay) {
-        let timer = 0;
-
-        return function (...args) {
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-                func(...args);
-            }, delay)
-        }
-    }
-
-    const handleSearch = debounce((e) => {
-        setSearch(e);
-        navigate("/movies/search");
-    }, 400);
-
-    const searchThing =(e)=>{
-        handleSearch(e.target.value)
-    };
+    const { setLogged, logged, fName, search, setSearch } = useStoreContext();
 
     return (
         <div id="header">
@@ -35,7 +15,7 @@ function Header() {
                     <button className="headerButtons" onClick={() => navigate("/movies/cart")}>Cart</button>
                     <button className="headerButtons" onClick={() => navigate("/movies/settings")}>Settings</button>
                     <button className="headerButtons" onClick={() => { setLogged(false); navigate("/"); }}>Logout</button><br />
-                    <input type="text" id="searchBar" placeholder="Search Movies Here" onInput={searchThing} />
+                    <input type="text" id="searchBar" placeholder="Search Movies Here" defaultValue={search} onChange={handleSearch} />
                 </> : <>
                     <button className="headerButtons" onClick={() => navigate('/login')}>Login</button>
                     <button className="headerButtons" onClick={() => navigate('/register')}>Register</button>

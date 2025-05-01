@@ -5,13 +5,13 @@ import { useStoreContext } from "../Context";
 import "./SearchView.css";
 
 function SearchView() {
-    const [movies, setMovies] = useState([]);
-    const param = useParams();
-    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+    const [movies, setMovies] = useState([]);
     let page = useRef(1);
     let pages = useRef(0);
     const { cart, setCart, search } = useStoreContext();
+    const param = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function getData() {
