@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useStoreContext } from "../Context";
 import "./SearchView.css";
 
@@ -10,7 +10,6 @@ function SearchView() {
     let page = useRef(1);
     let pages = useRef(0);
     const { cart, setCart, search } = useStoreContext();
-    const param = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,7 +20,7 @@ function SearchView() {
             pages.current = res.total_pages;
         }
         getData();
-    }, [param.genre_id]);
+    }, [search]);
 
     const getMoreData = async (direction) => {
         const nextPage = page.current + direction;
