@@ -1,16 +1,16 @@
-import './App.css'
+import "./App.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { StoreProvider } from "./Context";
-import HomeView from './Views/HomeView';
-import LoginView from './Views/LoginView';
-import RegisterView from './Views/RegisterView';
-import ErrorView from './Views/ErrorView';
-import DetailView from './Views/DetailView';
-import MoviesView from './Views/MoviesView';
-import GenreView from './Views/GenreView';
-import CartView from './Views/CartView';
-import SettingsView from './Views/SettingsView';
-import SearchView from './Views/SearchView';
+import HomeView from "./Views/HomeView";
+import LoginView from "./Views/LoginView";
+import RegisterView from "./Views/RegisterView";
+import ErrorView from "./Views/ErrorView";
+import DetailView from "./Views/DetailView";
+import MoviesView from "./Views/MoviesView";
+import GenreView from "./Views/GenreView";
+import CartView from "./Views/CartView";
+import SettingsView from "./Views/SettingsView";
+import SearchView from "./Views/SearchView";
 
 function App() {
 

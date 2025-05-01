@@ -11,9 +11,9 @@ function MovieView() {
     return (
         <div id="container">
             <Header id="header" />
-            <Genres genre={genreList} id="genres"/>
-            <Outlet id="outlet"/>
-            <Footer id="footer"/>
+            <Genres genre={genreList} id="genres" />
+            <Outlet id="outlet" />
+            <Footer id="footer" />
         </div>
     )
 }

@@ -10,7 +10,7 @@ function LoginView() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/movies/genres/28');
+        navigate("/movies/genres/28");
         setLogged(true);
     };
 

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import './style.css'
+import "./style.css"
 
 function Genres(props) {
     return (

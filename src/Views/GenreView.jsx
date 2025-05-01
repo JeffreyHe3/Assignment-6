@@ -37,7 +37,7 @@ function GenreView() {
             }
         }
     };
-
+    
     return (
         <div>
             <div className="movie-container">

@@ -1,17 +1,17 @@
-body{
+body {
     font-family: Arial;
 }
 
-.genreLabels{
+.genreLabels {
     color: white;
 }
 
-.labelNames{
+.labelNames {
     font-family: Arial;
     font-size: 10px;
 }
 
-#settingsSubmit{
+#settingsSubmit {
     background-color: #7009e5;
     border: none;
     color: white;
@@ -21,7 +21,7 @@ body{
     margin: 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    font-family: 'Arial';
+    font-family: "Arial";
 }
 
 #settingsSubmit:hover {
