@@ -65,7 +65,7 @@ function RegisterView() {
                     {genreList && genreList.map(genre => (
                         <div key={genre.id}>
                             <input id={genre.id} type="checkbox"></input>
-                            <label htmlFor={genre.id}>{genre.genre}</label>
+                            <label htmlFor={genre.id} className="inputLabel">{genre.genre}</label>
                         </div>
                     ))}
                     <input id="submitButton" type="submit" value="Register" />

@@ -15,13 +15,13 @@ function DetailView() {
         };
 
         getData();
-    }, []);
+    }, [param.id]);
 
     return (
         <div>
             <h2>Title: {movies.title}</h2>
             <h3>Tagline: {movies.tagline}</h3>
-            <img key={movies.id} src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`}></img>
+            {movies.poster_path && <img key={movies.id} src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`} alt={movies.title}></img>}
             <h2>Trailers</h2>
             {movies && videos.filter(video => video.type.toLowerCase() === "trailer").map(video => (
                 <iframe key={video.key} width="420" height="315" src={`https://www.youtube.com/embed/${video.key}`} title={video.name} allowFullScreen />

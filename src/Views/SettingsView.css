@@ -1,14 +1,10 @@
 body {
     font-family: Arial;
-}
-
-.genreLabels {
     color: white;
 }
 
-.labelNames {
-    font-family: Arial;
-    font-size: 10px;
+.genreLabels {
+    font-size: 20px;
 }
 
 #settingsSubmit {

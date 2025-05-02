@@ -22,23 +22,21 @@ function SettingsView() {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <h1>First Name:</h1>
-                <input id="inputFName" type="text" defaultValue={fName}></input>
-                <h1>Last Name:</h1>
-                <input id="inputLName" type="text" defaultValue={lName}></input>
-                <h1>{`Email: ${email}`}</h1>
-                <h1>Favourite Genres:</h1>
-                {genreList && genreList.map(genre => (
-                    <div key={genre.id}>
-                        <input id={genre.id} type="checkbox" defaultChecked={fGenre.includes(genre.id)}></input>
-                        <label className="genreLabels" htmlFor={genre.id}>{genre.genre}</label>
-                    </div>
-                ))}
-                <input id="settingsSubmit" type="submit" value="Save Account Details" />
-            </form>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <h1>First Name:</h1>
+            <input id="inputFName" className="input" type="text" defaultValue={fName}></input>
+            <h1>Last Name:</h1>
+            <input id="inputLName" className="input" type="text" defaultValue={lName}></input>
+            <h1>{`Email: ${email}`}</h1>
+            <h1>Favourite Genres:</h1>
+            {genreList && genreList.map(genre => (
+                <div key={genre.id}>
+                    <input id={genre.id} type="checkbox" defaultChecked={fGenre.includes(genre.id)}></input>
+                    <label className="genreLabels" htmlFor={genre.id}>{genre.genre}</label>
+                </div>
+            ))}
+            <input id="settingsSubmit" type="submit" value="Save Account Details" />
+        </form>
     )
 }
 
