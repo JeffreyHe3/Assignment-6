@@ -39,8 +39,8 @@ function Header() {
       {logged ?
         <>
           <h1 className="title">{`Hi ${fName}!`}</h1>
-          <button className="headerButtons" onClick={() => navigate("/movies/cart")}>Cart</button>
-          <button className="headerButtons" onClick={() => navigate("/movies/settings")}>Settings</button>
+          <button className="headerButtons" onClick={() => navigate("/cart")}>Cart</button>
+          <button className="headerButtons" onClick={() => navigate("/settings")}>Settings</button>
           <button className="headerButtons" onClick={() => { setLogged(false); navigate("/"); }}>Logout</button><br />
           <input type="text" id="searchBar" placeholder="Search Movies Here" defaultValue={search} onChange={onChange} />
         </> : <>

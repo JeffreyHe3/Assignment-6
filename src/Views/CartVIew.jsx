@@ -1,22 +1,28 @@
 import { useStoreContext } from "../Context";
+import { useNavigate } from "react-router-dom"
 import "./CartView.css";
 
 function CartView() {
-    const { cart, setCart } = useStoreContext();
+    const { cart, setCart, fGenre } = useStoreContext();
+    const navigate = useNavigate();
 
     return (
-        <div className="cart-container">
+        <div>
+            <button className="button" onClick={() => navigate(-1)}>Back</button>
             <h1 id="cTitle">Cart</h1>
-            {cart.entrySeq().map(([key, value]) => {
-                return (
-                    <div className="cart-item" key={key}>
-                        {value.poster_path && <img src={`https://image.tmdb.org/t/p/w500${value.poster_path}`} alt={value.title} />}
-                        <h3>{value.title}</h3>
-                        <button className="remove-button" onClick={() => setCart((prevCart) => prevCart.delete(value.id))}>Remove</button>
-                    </div>
-                )
-            })}
+            <div className="cartContainer">
+                {cart.entrySeq().map(([key, value]) => {
+                    return (
+                        <div className="cartItem" key={key}>
+                            {value.poster_path && <img src={`https://image.tmdb.org/t/p/w500${value.poster_path}`} alt={value.title} />}
+                            <h3>{value.title}</h3>
+                            <button className="removeButton" onClick={() => setCart((prevCart) => prevCart.delete(value.id))}>Remove</button>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
+
     );
 }
 

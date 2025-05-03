@@ -25,9 +25,9 @@ function App() {
             <Route path="genres/:genre_id" element={<GenreView />} />
             <Route path="details/:id" element={<DetailView />} />
             <Route path="search" element={<SearchView />} />
-            <Route path="cart" element={<CartView />} />
-            <Route path="settings" element={<SettingsView />} />
           </Route>
+          <Route path="settings" element={<SettingsView />} />
+          <Route path="cart" element={<CartView />} />
           <Route path="*" element={<ErrorView />} />
         </Routes>
       </BrowserRouter>

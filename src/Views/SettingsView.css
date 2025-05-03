@@ -1,13 +1,17 @@
 body {
     font-family: Arial;
     color: white;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    scrollbar-gutter: stable;
 }
 
 .genreLabels {
     font-size: 20px;
 }
 
-#settingsSubmit {
+.button {
     background-color: #7009e5;
     border: none;
     color: white;
@@ -20,6 +24,6 @@ body {
     font-family: "Arial";
 }
 
-#settingsSubmit:hover {
+.button:hover {
     background-color: #3d057e;
 }
