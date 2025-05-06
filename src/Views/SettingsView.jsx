@@ -25,7 +25,7 @@ function SettingsView() {
 
     return (
         <div>
-            <button className="button" onClick={() => navigate(-1)}>Back</button>
+            <button className="button" onClick={() => navigate(`/movies/genres/${fGenre[0]}`)}>Back</button>
             <form onSubmit={handleSubmit}>
                 <h1>Settings</h1>
                 <h1>First Name:</h1>
