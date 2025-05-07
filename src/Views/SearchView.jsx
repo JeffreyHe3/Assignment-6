@@ -14,7 +14,6 @@ function SearchView() {
 
     useEffect(() => {
         async function getData() {
-            page.current = 1;
             const res = ((await axios.get(`https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=1&api_key=${import.meta.env.VITE_TMDB_KEY}`)).data);
             setMovies(res.results);
             pages.current = res.total_pages;
