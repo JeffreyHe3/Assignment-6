@@ -28,8 +28,7 @@ function Header() {
   }, [sendRequest]);
 
   const onChange = (e) => {
-    const value = e.target.value;
-    debouncedSendRequest(value);
+    debouncedSendRequest(e.target.value);
   };
 
   return (
