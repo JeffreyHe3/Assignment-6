@@ -19,7 +19,6 @@ function Header() {
   }
 
   const sendRequest = useCallback((value) => {
-    console.log("Changed value:", value);
     setSearch(value);
     navigate("/movies/search");
   }, []);
