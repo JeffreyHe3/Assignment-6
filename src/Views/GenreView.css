@@ -1,4 +1,4 @@
-.movie-container {
+.movieContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -6,7 +6,7 @@
     padding: 20px;
 }
 
-.movie-card {
+.movieCard {
     margin-right: 30px;
     margin-top: 15px;
     margin-bottom: 10px;
@@ -19,7 +19,7 @@
     cursor: pointer;
 }
 
-.movie-card:hover {
+.movieCard:hover {
     transform: scale(1.05);
 }
 
@@ -41,17 +41,17 @@
     background-color: #3d057e;
 }
 
-.movie-card h1 {
+.movieCard h1 {
     font-size: 18px;
     color: white;
 }
 
-.movie-poster {
+.moviePoster {
     width: 100%;
     border-radius: 10px;
     transition: opacity 0.3s;
 }
 
-.movie-poster:hover {
+.moviePoster:hover {
     opacity: 0.8;
 }
