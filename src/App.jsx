@@ -11,6 +11,7 @@ import GenreView from "./Views/GenreView";
 import CartView from "./Views/CartView";
 import SettingsView from "./Views/SettingsView";
 import SearchView from "./Views/SearchView";
+import ProtectedRoutes from './Views/ProtectedRoutes';
 
 function App() {
 
@@ -21,10 +22,12 @@ function App() {
           <Route path="/" element={<HomeView />} />
           <Route path="/login" element={<LoginView />} />
           <Route path="/register" element={<RegisterView />} />
-          <Route path="/movies" element={<MoviesView />} >
-            <Route path="genres/:genre_id" element={<GenreView />} />
-            <Route path="details/:id" element={<DetailView />} />
-            <Route path="search" element={<SearchView />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/movies" element={<MoviesView />} >
+              <Route path="genres/:genre_id" element={<GenreView />} />
+              <Route path="details/:id" element={<DetailView />} />
+              <Route path="search" element={<SearchView />} />
+            </Route>
           </Route>
           <Route path="settings" element={<SettingsView />} />
           <Route path="cart" element={<CartView />} />
