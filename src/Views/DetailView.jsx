@@ -18,34 +18,43 @@ function DetailView() {
     }, [param.id]);
 
     return (
-        <div>
-            <h2>Title: {movies.title}</h2>
-            <h3>Tagline: {movies.tagline}</h3>
-            {movies.poster_path && <img key={movies.id} src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`} alt={movies.title}></img>}
-            <h2>Trailers</h2>
-            {movies && videos.filter(video => video.type.toLowerCase() === "trailer").map(video => (
-                <iframe key={video.key} width="420" height="315" src={`https://www.youtube.com/embed/${video.key}`} title={video.name} allowFullScreen />
-            ))}
-            <h2>Overview: {movies.overview}</h2>
-            <h2>Release Date: {movies.release_date}</h2>
-            <h2>Runtime: {movies.runtime} minutes</h2>
-            <h2>Original Language: {movies.original_language}</h2>
-            <h2>Spoken Languages:</h2>
-            {movies.spoken_languages && movies.spoken_languages.map((movie) => (
-                <li key={movie.name}>{movie.name}</li>
-            ))}
-            <h2>Genres:</h2>
-            {movies.genres && movies.genres.map((movie) => (
-                <li key={movie.name}>{movie.name}</li>
-            ))}
-            <h2>Production Companies: </h2>
-            {movies.production_countries && movies.production_companies.map((movie) => (
-                <li key={movie.name}>{movie.name}</li>
-            ))}
-            <h2>Production Countries: </h2>
-            {movies.production_countries && movies.production_countries.map((movie) => (
-                <li key={movie.name}>{movie.name}</li>
-            ))}
+        <div id="detailsContainer">
+            {movies.poster_path && <img key={movies.id} id="movieImage" src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`} alt={movies.title}></img>}
+            <div id="allDetails">
+                <h2>Title:</h2>
+                <p>{movies.title}</p>
+                <h3>Tagline:</h3>
+                <p>{movies.tagline}</p>
+                <h2>Trailers</h2>
+                {movies && videos.filter(video => video.type.toLowerCase() === "trailer").map(video => (
+                    <iframe key={video.key} className="trailers" width="420" height="315" src={`https://www.youtube.com/embed/${video.key}`} title={video.name} allowFullScreen />
+                ))}
+                <h2>Overview:</h2>
+                <p>{movies.overview}</p>
+                <h2>Release Date:</h2>
+                <p>{movies.release_date}</p>
+                <h2>Runtime:</h2>
+                <p>{movies.runtime} minutes</p>
+                <h2>Original Language:</h2>
+                <p>{movies.original_language}</p>
+                <h2>Spoken Languages:</h2>
+                {movies.spoken_languages && movies.spoken_languages.map((movie) => (
+                    <li key={movie.name}>{movie.name}</li>
+                ))}
+                <h2>Genres:</h2>
+                {movies.genres && movies.genres.map((movie) => (
+                    <li key={movie.name}>{movie.name}</li>
+                ))}
+                <h2>Production Companies: </h2>
+                {movies.production_countries && movies.production_companies.map((movie) => (
+                    <li key={movie.name}>{movie.name}</li>
+                ))}
+                <h2>Production Countries: </h2>
+                {movies.production_countries && movies.production_countries.map((movie) => (
+                    <li key={movie.name}>{movie.name}</li>
+                ))}
+            </div>
+
         </div>
     )
 }
