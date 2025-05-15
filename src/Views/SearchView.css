@@ -1,4 +1,4 @@
-.movie-container {
+.movieContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -6,7 +6,7 @@
     padding: 20px;
 }
 
-.movie-card {
+.movieCard {
     margin-right: 30px;
     margin-top: 15px;
     margin-bottom: 10px;
@@ -15,11 +15,11 @@
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s;
-    width: 350px;
+    width: 320px;
     cursor: pointer;
 }
 
-.movie-card:hover {
+.movieCard:hover {
     transform: scale(1.05);
 }
 
@@ -29,8 +29,8 @@
     color: white;
     padding: 10px 20px;
     font-size: 1rem;
+    margin-top: 10px;
     cursor: pointer;
-    margin: 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     font-family: "Arial";
@@ -41,17 +41,45 @@
     background-color: #3d057e;
 }
 
-.movie-card h1 {
+.movieText {
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.movieTitle{
     font-size: 18px;
     color: white;
 }
 
-.movie-poster {
+.moviePoster {
     width: 100%;
     border-radius: 10px;
     transition: opacity 0.3s;
 }
 
-.movie-poster:hover {
+.moviePoster:hover {
     opacity: 0.8;
+}
+
+.pagination{
+    padding: 10px;
+    display: flex;
+}
+
+.pageButtons{
+    background-color: #7009e5;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: "Arial";
+}
+
+.pageButtons:hover {
+    background-color: #3d057e;
 }

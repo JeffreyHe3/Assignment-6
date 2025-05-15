@@ -7,7 +7,7 @@ function CartView() {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div id="cartPage">
             <button className="button" onClick={() => navigate(`/movies/genres/${fGenre[0]}`)}>Back</button>
             <h1 id="cTitle">Cart</h1>
             <div className="cartContainer">

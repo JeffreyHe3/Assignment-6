@@ -29,8 +29,8 @@
     color: white;
     padding: 10px 20px;
     font-size: 1rem;
+    margin-top: 10px;
     cursor: pointer;
-    margin: 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     font-family: "Arial";
@@ -41,7 +41,14 @@
     background-color: #3d057e;
 }
 
-.movieCard h1 {
+.movieText {
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.movieTitle{
     font-size: 18px;
     color: white;
 }
@@ -54,4 +61,24 @@
 
 .moviePoster:hover {
     opacity: 0.8;
+}
+
+.pagination{
+    padding: 10px;
+    display: flex;
+}
+
+.pageButtons{
+    background-color: #7009e5;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: "Arial";
+}
+
+.pageButtons:hover {
+    background-color: #3d057e;
 }

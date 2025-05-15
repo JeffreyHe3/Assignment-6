@@ -26,6 +26,7 @@ function DetailView() {
             {movies && videos.filter(video => video.type.toLowerCase() === "trailer").map(video => (
                 <iframe key={video.key} width="420" height="315" src={`https://www.youtube.com/embed/${video.key}`} title={video.name} allowFullScreen />
             ))}
+            <h2>Overview: {movies.overview}</h2>
             <h2>Release Date: {movies.release_date}</h2>
             <h2>Runtime: {movies.runtime} minutes</h2>
             <h2>Original Language: {movies.original_language}</h2>

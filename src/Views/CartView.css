@@ -80,3 +80,7 @@
 .button:hover {
     background-color: #3d057e;
 }
+
+#cartPage {
+    margin: 10px;
+}
