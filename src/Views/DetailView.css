@@ -9,6 +9,7 @@
 
 #movieImage {
     grid-area: gridA;
+    margin: 10px;
 }
 
 #allDetails {

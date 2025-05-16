@@ -13,11 +13,11 @@ function SearchView() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        page.current = 1;
         async function getData() {
             const res = ((await axios.get(`https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=1&api_key=${import.meta.env.VITE_TMDB_KEY}`)).data);
             setMovies(res.results);
             pages.current = res.total_pages;
-
         }
         getData();
     }, [search]);
@@ -41,7 +41,7 @@ function SearchView() {
         <div>
             <div className="movieContainer">
                 {movies && movies.map(movie => (
-                    <div key={movie.id} >
+                    <div className="movieBox" key={movie.id} >
                         <div className="movieCard" onClick={() => navigate(`/movies/details/${movie.id}`)}>
                             <h1 className="movieTitle">{`${movie.title}`}</h1>
                             {movie.poster_path && <img className="moviePoster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`${movie.id}`} />}

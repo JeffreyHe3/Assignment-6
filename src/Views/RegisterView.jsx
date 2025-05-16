@@ -5,7 +5,7 @@ import { useStoreContext } from "../Context";
 import "./RegisterView.css";
 
 function RegisterView() {
-    const { setEmail, setLogged, setFName, setLName, genreList, setFGenre } = useStoreContext();
+    const { setEmail, setFName, setLName, genreList, setFGenre } = useStoreContext();
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -38,7 +38,6 @@ function RegisterView() {
         setFName(fName);
         setLName(lName);
         setEmail(email);
-        setLogged(true);
         setFGenre(checkedGenres);
 
         navigate(`/movies/genres/${checkedGenres[0]}`);

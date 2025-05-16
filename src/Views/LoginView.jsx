@@ -6,12 +6,12 @@ import "./LoginView.css";
 
 function LoginView() {
     const navigate = useNavigate();
-    const { setLogged } = useStoreContext();
+    const { setEmail } = useStoreContext();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setEmail(e.target[0].value);
         navigate("/movies/genres/28");
-        setLogged(true);
     };
 
     return (

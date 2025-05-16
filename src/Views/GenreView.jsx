@@ -41,7 +41,7 @@ function GenreView() {
         <div>
             <div className="movieContainer">
                 {movies && movies.map(movie => (
-                    <div key={movie.id}>
+                    <div className="movieBox" key={movie.id}>
                         <div className="movieCard" onClick={() => navigate(`/movies/details/${movie.id}`)}>
                             <h1 className="movieTitle">{`${movie.title}`}</h1>
                             <img className="moviePoster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`${movie.id}`} />
