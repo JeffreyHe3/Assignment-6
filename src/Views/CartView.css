@@ -38,20 +38,6 @@
     font-family: "Arial";
 }
 
-.removeButton {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.removeButton:hover {
-    background-color: #ff1a1a;
-}
-
 @media (max-width: 768px) {
     .cartItem {
         flex-direction: column;

@@ -1,9 +1,11 @@
 import "./SettingsView.css";
+import { useState } from "react";
 import { useStoreContext } from "../Context";
 import { useNavigate } from "react-router-dom"
 
 function SettingsView() {
     const { email, lName, fName, setFName, setLName, genreList, setFGenre, fGenre } = useStoreContext();
+    const [saved, setSaved] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -19,19 +21,21 @@ function SettingsView() {
                 checkedGenres.push(Number(checkbox.id));
             }
         });
-
+        
         setFGenre(checkedGenres);
+
+        setSaved(true);
     };
 
     return (
         <div id="settingsPage">
             <button className="button" onClick={() => navigate(-1)}>Back</button>
-            <form onSubmit={handleSubmit}>
+            <form id="settingForms" onSubmit={handleSubmit}>
                 <h1>Settings</h1>
                 <h1>First Name:</h1>
-                <input id="inputFName" className="input" type="text" defaultValue={fName}></input>
+                <input id="inputFName" className="settingsInput" type="text" defaultValue={fName}></input>
                 <h1>Last Name:</h1>
-                <input id="inputLName" className="input" type="text" defaultValue={lName}></input>
+                <input id="inputLName" className="settingsInput" type="text" defaultValue={lName}></input>
                 <h1>{`Email: ${email}`}</h1>
                 <h1>Favourite Genres:</h1>
                 {genreList && genreList.map(genre => (
@@ -41,6 +45,7 @@ function SettingsView() {
                     </div>
                 ))}
                 <input className="button" type="submit" value="Save Account Details" />
+                {saved && <p display="none" id="savedText">Saved!</p>}
             </form>
         </div>
 
