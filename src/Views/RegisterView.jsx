@@ -50,16 +50,11 @@ function RegisterView() {
             <div id="rForm" >
                 <h1 id="rTitle">Register</h1>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="firstName" className="inputLabel">First Name</label>
-                    <input id="firstName" type="text" className="input" name="firstName" required />
-                    <label htmlFor="lastName" className="inputLabel">Last Name</label>
-                    <input id="lastName" type="text" className="input" name="lastName" required />
-                    <label htmlFor="email" className="inputLabel">Email</label>
-                    <input id="email" type="email" className="input" name="email" autoComplete="on" required />
-                    <label htmlFor="1Password" className="inputLabel">Password</label>
-                    <input id="1Password" type="password" className="input" name="1Password" required />
-                    <label htmlFor="2Password" className="inputLabel">Re-enter Password</label>
-                    <input id="2Password" type="password" className="input" name="2Password" required />
+                    <input id="firstName" type="text" className="input" name="firstName" placeholder="First Name" required />
+                    <input id="lastName" type="text" className="input" name="lastName" placeholder="Last Name" required />
+                    <input id="email" type="email" className="input" name="email" autoComplete="on" placeholder="Email" required />
+                    <input id="1Password" type="password" className="input" name="1Password" placeholder="Password" required />
+                    <input id="2Password" type="password" className="input" name="2Password" placeholder="Re-enter Password" required />
                     <p id="genreListTitle">Choose at least 5 of your favourite genres</p>
                     {genreList && genreList.map(genre => (
                         <div key={genre.id}>
