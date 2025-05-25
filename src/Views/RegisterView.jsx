@@ -10,31 +10,31 @@ function RegisterView() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
-        const fName = e.target[0].value;
-        const lName = e.target[1].value;
-        const email = e.target[2].value;
+
         const password1 = e.target[3].value;
         const password2 = e.target[4].value;
         const checkedGenres = [];
         const checkboxes = e.target.querySelectorAll('input[type="checkbox"]');
-    
+
         if (password1 !== password2) {
             alert("Passwords do not match.");
             return;
         }
-    
+
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
                 checkedGenres.push(Number(checkbox.id));
             }
         });
-    
+
         if (checkedGenres.length < 5) {
             alert("Please select at least 5 favorite genres.");
             return;
         }
-    
+
+        const fName = e.target[0].value;
+        const lName = e.target[1].value;
+        const email = e.target[2].value;
         setFName(fName);
         setLName(lName);
         setEmail(email);
@@ -42,7 +42,7 @@ function RegisterView() {
 
         navigate(`/movies/genres/${checkedGenres[0]}`);
     };
-    
+
 
     return (
         <div>
