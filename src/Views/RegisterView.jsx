@@ -1,11 +1,13 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useStoreContext } from "../Context";
 import "./RegisterView.css";
 
 function RegisterView() {
     const { setEmail, setFName, setLName, genreList, setFGenre } = useStoreContext();
+    const [checkedGenres, setcheckedGenres] = useState([]);
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -13,7 +15,6 @@ function RegisterView() {
 
         const password1 = e.target[3].value;
         const password2 = e.target[4].value;
-        const checkedGenres = [];
         const checkboxes = e.target.querySelectorAll('input[type="checkbox"]');
 
         if (password1 !== password2) {
@@ -23,7 +24,7 @@ function RegisterView() {
 
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
-                checkedGenres.push(Number(checkbox.id));
+                checkedGenres.push(checkbox.id);
             }
         });
 
