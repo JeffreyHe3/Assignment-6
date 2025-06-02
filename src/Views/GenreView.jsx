@@ -39,7 +39,7 @@ function GenreView() {
     };
     
     return (
-        <div>
+        <>
             <div className="movieContainer">
                 {movies && movies.map(movie => (
                     <div className="movieBox" key={movie.id}>
@@ -57,7 +57,7 @@ function GenreView() {
                 <button className="pageButtons" onClick={() => getMoreData(1)} disabled={loading || page.current === pages.current}>Next</button>
             </div>
             {loading && <p>Loading...</p>}
-        </div >
+        </ >
     )
 }
 

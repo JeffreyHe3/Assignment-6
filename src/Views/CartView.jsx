@@ -22,7 +22,6 @@ function CartView() {
                 })}
             </div>
         </div>
-
     );
 }
 

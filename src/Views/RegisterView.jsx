@@ -46,7 +46,7 @@ function RegisterView() {
 
 
     return (
-        <div>
+        <>
             <Header />
             <div id="rForm" >
                 <h1 id="rTitle">Register</h1>
@@ -67,7 +67,7 @@ function RegisterView() {
                 </form>
             </div>
             <Footer />
-        </div>
+        </>
     )
 }
 

@@ -6,12 +6,12 @@ import Feature from "../components/Feature";
 
 function HomeView() {
     return (
-        <div>
+        <>
             <Header />
             <Hero />
             <Feature />
             <Footer />
-        </div>
+        </>
     );
 }
 
