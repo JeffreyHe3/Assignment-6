@@ -26,18 +26,18 @@ function Header() {
     <div id="header">
       <h1 className="title">Jeffrey's Movies</h1>
       {email ? (
-        <>
+        <div>
           <h1 className="title">{`Hi ${fName}!`}</h1>
           <button className="headerButtons" onClick={() => navigate("/cart")}>Cart</button>
           <button className="headerButtons" onClick={() => navigate("/settings")}>Settings</button>
           <button className="headerButtons" onClick={() => { setEmail(null); navigate("/"); }}>Logout</button><br />
           <input type="text" id="searchBar" placeholder="Search Movies Here" autoComplete="off" onInput={(e) => onSearch(e)} />
-        </>
+        </div>
       ) : (
-        <>
+        <div>
           <button className="headerButtons" onClick={() => navigate("/login")}>Login</button>
           <button className="headerButtons" onClick={() => navigate("/register")}>Register</button>
-        </>
+        </div>
       )}
     </div>
   );
