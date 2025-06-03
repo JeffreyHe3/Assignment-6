@@ -15,7 +15,7 @@ function LoginView() {
     };
 
     return (
-        <>
+        <div>
             <Header />
             <div id="lForm">
                 <h1 id="lTitle">Login</h1>
@@ -26,7 +26,7 @@ function LoginView() {
                 </form>
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 

@@ -14,7 +14,7 @@ function GenreView() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        scrollTo(top);
+        window.scrollTo(0, 0);
         async function getData() {
             const res = ((await axios.get(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${param.genre_id}&api_key=${import.meta.env.VITE_TMDB_KEY}`)).data);
             setMovies(res.results);
@@ -39,7 +39,7 @@ function GenreView() {
     };
     
     return (
-        <>
+        <div>
             <div className="movieContainer">
                 {movies && movies.map(movie => (
                     <div className="movieBox" key={movie.id}>
@@ -57,7 +57,7 @@ function GenreView() {
                 <button className="pageButtons" onClick={() => getMoreData(1)} disabled={loading || page.current === pages.current}>Next</button>
             </div>
             {loading && <p>Loading...</p>}
-        </ >
+        </ div>
     )
 }
 

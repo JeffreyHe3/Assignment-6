@@ -14,6 +14,7 @@ function SearchView() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         page.current = 1;
         async function getData() {
             const res = ((await axios.get(`https://api.themoviedb.org/3/search/movie?query=${param.search_id}&include_adult=false&language=en-US&page=1&api_key=${import.meta.env.VITE_TMDB_KEY}`)).data);
@@ -39,7 +40,7 @@ function SearchView() {
     };
 
     return (
-        <>
+        <div>
             <div className="movieContainer">
                 {movies && movies.map(movie => (
                     <div className="movieBox" key={movie.id} >
@@ -57,7 +58,7 @@ function SearchView() {
                 <button className="pageButtons" onClick={() => getMoreData(1)} disabled={loading || page.current === pages.current}>Next</button>
             </div>
             {loading && <p>Loading...</p>}
-        </ >
+        </ div>
     )
 }
 

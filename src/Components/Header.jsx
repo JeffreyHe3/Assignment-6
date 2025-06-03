@@ -31,7 +31,7 @@ function Header() {
           <button className="headerButtons" onClick={() => navigate("/cart")}>Cart</button>
           <button className="headerButtons" onClick={() => navigate("/settings")}>Settings</button>
           <button className="headerButtons" onClick={() => { setEmail(null); navigate("/"); }}>Logout</button><br />
-          <input type="text" id="searchBar" placeholder="Search Movies Here" onInput={(e) => onSearch(e)} />
+          <input type="text" id="searchBar" placeholder="Search Movies Here" autoComplete="off" onInput={(e) => onSearch(e)} />
         </>
       ) : (
         <>

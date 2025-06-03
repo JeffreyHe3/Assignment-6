@@ -21,6 +21,11 @@ function SettingsView() {
                 checkedGenres.push(Number(checkbox.id));
             }
         });
+
+        if (checkedGenres.length < 5) {
+            alert("Please select at least 5 favorite genres.");
+            return;
+        }
         
         setFGenre(checkedGenres);
 

@@ -19,7 +19,7 @@ function DetailView() {
     }, [param.id]);
 
     return (
-        <>
+        <div>
             <button className="button" onClick={() => navigate(-1)}>Back</button>
             <div id="detailsContainer">
                 {movies.poster_path && <img key={movies.id} id="movieImage" src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`} alt={movies.title}></img>}
@@ -58,7 +58,7 @@ function DetailView() {
                     ))}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
