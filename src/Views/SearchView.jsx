@@ -39,6 +39,10 @@ function SearchView() {
         }
     };
 
+    const handleAddToCart = (movie) => {
+        setCart((prevCart) => prevCart.set(movie.id, movie));
+    };
+
     return (
         <div>
             <div className="movieContainer">
@@ -48,7 +52,7 @@ function SearchView() {
                             <h1 className="movieTitle">{`${movie.title}`}</h1>
                             {movie.poster_path && <img className="moviePoster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`${movie.id}`} />}
                         </div>
-                        <button className="buyButtons" onClick={() => setCart((prevCart) => prevCart.set(movie.id, movie))}>{cart.has(movie.id) ? "Added" : "Buy"}</button>
+                        <button className="buyButtons" onClick={() => handleAddToCart()}>{cart.has(movie.id) ? "Added" : "Buy"}</button>
                     </div>
                 ))}
             </div>
