@@ -70,3 +70,7 @@
 #cartPage {
     margin: 10px;
 }
+
+#emptyCart{
+    color: white;
+}
