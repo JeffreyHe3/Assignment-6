@@ -6,12 +6,12 @@ import Footer from "../components/Footer";
 import Genres from "../components/Genres";
 
 function MovieView() {
-    const { genreList } = useStoreContext();
+    const { genres } = useStoreContext();
 
     return (
         <div id="container">
             <Header id="header" />
-            <Genres genre={genreList} id="genres" />
+            <Genres genre={genres} id="genres" />
             <Outlet id="outlet" />
             <Footer id="footer" />
         </div>

@@ -4,7 +4,7 @@ import { useStoreContext } from "../Context";
 
 function Header() {
   const navigate = useNavigate();
-  const { fName, email, setEmail } = useStoreContext();
+  const { fName, email, setEmail, setGenres, genres } = useStoreContext();
 
   const debounce = (func, delay) => {
     let timer;
@@ -16,6 +16,10 @@ function Header() {
     }
   }
 
+  const resetGenres = () => {
+    setGenres(genres.map(genre => ({ ...genre, isChosen: false })));
+  };
+
   const onSearch = debounce((e) => {
     if (e.target.value) {
       navigate(`/movies/search/${e.target.value}`);
@@ -25,15 +29,15 @@ function Header() {
   return (
     <div id="header">
       <h1 className="title">Jeffrey's Movies</h1>
-      {email ? 
+      {email ?
         <div>
           <h1 className="title">{`Hi ${fName}!`}</h1>
           <button className="headerButtons" onClick={() => navigate("/cart")}>Cart</button>
           <button className="headerButtons" onClick={() => navigate("/settings")}>Settings</button>
-          <button className="headerButtons" onClick={() => { setEmail(null); navigate("/"); }}>Logout</button><br />
+          <button className="headerButtons" onClick={() => { setEmail(null); resetGenres(); navigate("/"); }}>Logout</button><br />
           <input type="text" id="searchBar" placeholder="Search Movies Here" autoComplete="off" onInput={(e) => onSearch(e)} />
         </div>
-       : 
+        :
         <div>
           <button className="headerButtons" onClick={() => navigate("/login")}>Login</button>
           <button className="headerButtons" onClick={() => navigate("/register")}>Register</button>

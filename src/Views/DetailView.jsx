@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useStoreContext } from "../Context";
 import "./DetailView.css";
 
 function DetailView() {
     const param = useParams();
+    const { cart, setCart } = useStoreContext();
     const [movies, setMovies] = useState([]);
     const [videos, setVideos] = useState([]);
     const navigate = useNavigate();
@@ -18,11 +20,18 @@ function DetailView() {
         getData();
     }, [param.id]);
 
+    const handleAddToCart = (movie) => {
+        setCart((prevCart) => prevCart.set(parseInt(movie.id), movie));
+    };
+
     return (
         <div>
-            <button className="button" onClick={() => navigate(-1)}>Back</button>
             <div id="detailsContainer">
-                {movies.poster_path && <img key={movies.id} id="movieImage" src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`} alt={movies.title}></img>}
+                <div className="imageContainer">
+                    <button className="button" onClick={() => navigate(-1)}>Back</button><br />
+                    {movies.poster_path && <img key={movies.id} id="movieImage" src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`} alt={movies.title}></img>}<br />
+                    <button className="buyButtons" onClick={() => handleAddToCart(movies)} disabled={cart.has(movies.id)}>{cart.has(movies.id) ? "Added" : "Buy"}</button>
+                </div>
                 <div id="allDetails">
                     <h2>Title:</h2>
                     <p>{movies.title}</p>

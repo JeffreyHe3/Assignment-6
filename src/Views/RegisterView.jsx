@@ -4,43 +4,41 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useStoreContext } from "../Context";
 import "./RegisterView.css";
-
+// 
 function RegisterView() {
-    const { setEmail, setFName, setLName, genreList, setFGenre } = useStoreContext();
-    const [checkedGenres, setcheckedGenres] = useState([]);
+    const { setEmail, setFName, setLName, genres, setGenres } = useStoreContext();
+    const [checkedGenres, setCheckedGenres] = useState([]);
     const navigate = useNavigate();
+    
+
+    const handleChecked = (e) => {
+        const updatedGenres = genres.map(genre =>
+            genre.id === e.target.id ? { ...genre, isChosen: e.target.checked } : genre
+        );
+
+        setCheckedGenres(prev =>
+            e.target.checked ? [...prev, e.target.id] : prev.filter(gid => gid !== e.target.id)
+        );
+
+        setGenres(updatedGenres);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const password1 = e.target[3].value;
-        const password2 = e.target[4].value;
-        const checkboxes = e.target.querySelectorAll('input[type="checkbox"]');
-
-        if (password1 !== password2) {
+        if (e.target[3].value !== e.target[4].value) {
             alert("Passwords do not match.");
             return;
         }
-
-        checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                checkedGenres.push(parseInt(checkbox.id));
-            }
-        });
 
         if (checkedGenres.length < 5) {
             alert("Please select at least 5 favorite genres.");
             return;
         }
 
-        const fName = e.target[0].value;
-        const lName = e.target[1].value;
-        const email = e.target[2].value;
-        setFName(fName);
-        setLName(lName);
-        setEmail(email);
-        setFGenre(checkedGenres);
-
+        setFName(e.target[0].value);
+        setLName(e.target[1].value);
+        setEmail(e.target[2].value);
         navigate(`/movies/genres/${checkedGenres[0]}`);
     };
 
@@ -54,12 +52,12 @@ function RegisterView() {
                     <input id="firstName" type="text" className="input" name="firstName" placeholder="First Name" required />
                     <input id="lastName" type="text" className="input" name="lastName" placeholder="Last Name" required />
                     <input id="email" type="email" className="input" name="email" autoComplete="on" placeholder="Email" required />
-                    <input id="1Password" type="password" className="input" name="1Password" placeholder="Password" required />
-                    <input id="2Password" type="password" className="input" name="2Password" placeholder="Re-enter Password" required />
-                    <p id="genreListTitle">Choose at least 5 of your favourite genres</p>
-                    {genreList && genreList.map(genre => (
+                    <input id="password1" type="password" className="input" name="password1" placeholder="Password" required />
+                    <input id="password2" type="password" className="input" name="password2" placeholder="Re-enter Password" required />
+                    <p id="genresitle">Choose at least 5 of genres you want to see</p>
+                    {genres && genres.map(genre => (
                         <div key={genre.id}>
-                            <input id={genre.id} type="checkbox"></input>
+                            <input id={genre.id} type="checkbox" onChange={handleChecked}></input>
                             <label htmlFor={genre.id} className="inputLabel">{genre.genre}</label>
                         </div>
                     ))}

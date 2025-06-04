@@ -51,7 +51,7 @@ function GenreView() {
                             <h1 className="movieTitle">{`${movie.title}`}</h1>
                             <img className="moviePoster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`${movie.id}`} />
                         </div>
-                        <button className="buyButtons" onClick={() => handleAddToCart(movie)}>{cart.has(movie.id) ? "Added" : "Buy"}</button>
+                        <button className="buyButtons" onClick={() => handleAddToCart(movie)} disabled={cart.has(movie.id)}>{cart.has(movie.id) ? "Added" : "Buy"}</button>
                     </div>
                 ))}
             </div>
