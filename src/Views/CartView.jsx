@@ -21,7 +21,7 @@ function CartView() {
                     {cart.entrySeq().map(([key, value]) => {
                         return (
                             <div className="cartItem" key={key}>
-                                {value.poster_path && <img src={`https://image.tmdb.org/t/p/w500${value.poster_path}`} onClick={() => navigate(`/movies/details/${value.id}`)} alt={value.title} />}
+                                {value.poster_path && <img src={`https://image.tmdb.org/t/p/w500${value.poster_path}`} onClick={() => navigate(`/movies/details/${key}`)} alt={`${value.title} poster`} />}
                                 <h3>{value.title}</h3>
                                 <button className="button" onClick={() => handleRemoveFromCart(value)}>Remove</button>
                             </div>

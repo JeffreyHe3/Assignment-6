@@ -40,7 +40,8 @@ function SearchView() {
     };
 
     const handleAddToCart = (movie) => {
-        setCart((prevCart) => prevCart.set(movie.id, movie));
+        const movieDetails = {"poster_path": movie.poster_path, "title": movie.title}
+        setCart((prevCart) => prevCart.set(parseInt(movie.id), movieDetails));
     };
 
     return (
