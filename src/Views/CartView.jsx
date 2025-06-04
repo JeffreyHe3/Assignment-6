@@ -6,8 +6,8 @@ function CartView() {
     const { cart, setCart } = useStoreContext();
     const navigate = useNavigate();
 
-    const handleRemoveFromCart = (value) => {
-        setCart((prevCart) => prevCart.delete(value.id));
+    const handleRemoveFromCart = (key) => {
+        setCart((prevCart) => prevCart.delete(key));
     };
 
     return (
@@ -23,7 +23,7 @@ function CartView() {
                             <div className="cartItem" key={key}>
                                 {value.poster_path && <img src={`https://image.tmdb.org/t/p/w500${value.poster_path}`} onClick={() => navigate(`/movies/details/${key}`)} alt={`${value.title} poster`} />}
                                 <h3>{value.title}</h3>
-                                <button className="button" onClick={() => handleRemoveFromCart(value)}>Remove</button>
+                                <button className="button" onClick={() => handleRemoveFromCart(key)}>Remove</button>
                             </div>
                         )
                     })}

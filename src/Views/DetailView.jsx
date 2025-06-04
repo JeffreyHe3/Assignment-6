@@ -22,7 +22,7 @@ function DetailView() {
 
     const handleAddToCart = (movie) => {
         const movieDetails = {"poster_path": movie.poster_path, "title": movie.title}
-        setCart((prevCart) => prevCart.set(parseInt(movie.id), movieDetails));
+        setCart((prevCart) => prevCart.set(movie.id, movieDetails));
     };
 
     return (

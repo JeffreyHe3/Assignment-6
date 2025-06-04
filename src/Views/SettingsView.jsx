@@ -39,9 +39,9 @@ function SettingsView() {
             <form id="settingForms" onSubmit={handleSubmit}>
                 <h1>Settings</h1>
                 <h1 htmlFor="inputFName" className="settingsLabel">First Name:</h1>
-                <input id="inputFName" className="settingsInput" type="text" defaultValue={fName}></input>
+                <input id="inputFName" className="settingsInput" type="text" defaultValue={fName} required></input>
                 <h1 htmlFor="inputLName" className="settingsLabel">Last Name:</h1>
-                <input id="inputLName" className="settingsInput" type="text" defaultValue={lName}></input>
+                <input id="inputLName" className="settingsInput" type="text" defaultValue={lName} required></input>
                 <h1>{`Email: ${email}`}</h1>
                 <h1>Viewable Genres:</h1>
                 {genres && genres.map(genre => (
