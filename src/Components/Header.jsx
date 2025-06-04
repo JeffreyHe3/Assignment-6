@@ -16,15 +16,15 @@ function Header() {
     }
   }
 
-  const resetGenres = () => {
-    setGenres(genres.map(genre => ({ ...genre, isChosen: false })));
-  };
-
   const onSearch = debounce((e) => {
     if (e.target.value) {
       navigate(`/movies/search/${e.target.value}`);
     }
   }, 500);
+
+  const resetGenres = () => {
+    setGenres(genres.map(genre => ({ ...genre, isChosen: false })));
+  };
 
   return (
     <div id="header">
