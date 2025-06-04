@@ -22,7 +22,7 @@ function DetailView() {
 
     const handleAddToCart = (movie) => {
         const movieDetails = {"poster_path": movie.poster_path, "title": movie.title}
-        setCart((prevCart) => prevCart.set(movie.id, movieDetails));
+        setCart((prevCart) => prevCart.set(parseInt(movies.id), movieDetails));
     };
 
     return (
@@ -30,7 +30,7 @@ function DetailView() {
             <div className="imageContainer">
                 <button className="button" onClick={() => navigate(-1)}>Back</button><br />
                 {movies.poster_path && <img key={movies.id} id="movieImage" src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`} alt={movies.title}></img>}<br />
-                <button className="buyButtons" onClick={() => handleAddToCart(movies)} disabled={cart.has(movies.id)}>{cart.has(movies.id) ? "Added" : "Buy"}</button>
+                <button className="buyButtons" onClick={() => handleAddToCart(movies)} disabled={cart.has(parseInt(movies.id))}>{cart.has(parseInt(movies.id)) ? "Added" : "Buy"}</button>
             </div>
             <div id="allDetails">
                 <h2>Title:</h2>
