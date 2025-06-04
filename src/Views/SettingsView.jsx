@@ -2,7 +2,7 @@ import "./SettingsView.css";
 import { useState } from "react";
 import { useStoreContext } from "../Context";
 import { useNavigate } from "react-router-dom"
-// 
+ 
 function SettingsView() {
     const { email, lName, fName, setFName, setLName, genres, setGenres } = useStoreContext();
     const [saved, setSaved] = useState(false);

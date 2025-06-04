@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useStoreContext } from "../Context";
 import "./RegisterView.css";
-// 
+
 function RegisterView() {
     const { setEmail, setFName, setLName, genres, setGenres } = useStoreContext();
     const [checkedGenres, setCheckedGenres] = useState([]);

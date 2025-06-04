@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./style.css"
-// 
+
 function Genres(props) {
     return (
         <div>
