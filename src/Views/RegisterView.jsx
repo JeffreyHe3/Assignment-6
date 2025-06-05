@@ -53,7 +53,7 @@ function RegisterView() {
                     <input id="email" type="email" className="input" name="email" autoComplete="on" placeholder="Email" required />
                     <input id="password1" type="password" className="input" name="password1" placeholder="Password" required />
                     <input id="password2" type="password" className="input" name="password2" placeholder="Re-enter Password" required />
-                    <p id="genresTitle">Choose at least 5 of genres you want to see</p>
+                    <p id="genresTitle">Choose at least 5 genres you want to see</p>
                     {genres && genres.map(genre => (
                         <div key={genre.id}>
                             <input id={genre.id} type="checkbox" onChange={handleChecked}></input>
